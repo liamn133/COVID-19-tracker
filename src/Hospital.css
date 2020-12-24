@@ -1,0 +1,42 @@
+#hospStats {
+	text-align: left;
+}
+#statsSectionImgs {
+	display: flex;
+	margin-left: 60px;
+}
+#statsSection {
+	margin-left: 60px;
+	display: flex;
+}
+
+#headImg {
+	margin-top: 50px;
+	height: 120px;
+	width: 150px;
+}
+
+#testImg {
+	margin: 60px 0px 0px 100px;
+	height: 120px;
+	width: 100px;
+}
+
+#hospContainer {
+	display: flex;
+	text-align: left;
+}
+
+#hospContainer h3 {
+	text-align: left;
+}
+
+table {
+	text-align: left;
+	margin: 0;
+	padding: 0;
+}
+
+#testStats {
+	text-align: left;
+}

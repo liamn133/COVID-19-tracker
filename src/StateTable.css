@@ -1,0 +1,15 @@
+#stateTable td {
+	border: 2px solid black;
+}
+
+#stateTable {
+	margin-top: 20px;
+	width: 70vw;
+}
+
+#stateTable td:nth-of-type(odd) {
+	font-weight: bold;
+}
+#stateTable tr:nth-of-type(even) {
+	background-color: rgb(241, 236, 236);
+}

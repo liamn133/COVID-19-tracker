@@ -1,0 +1,44 @@
+#activeCases {
+	background-color: rgba(12, 46, 236, 0.3);
+}
+
+#deaths {
+	background-color: rgba(12, 46, 236, 0.6);
+}
+
+#deathRate {
+	background-color: rgba(12, 46, 236, 0.6);
+}
+
+#totalCases {
+	background-color: rgba(12, 46, 236, 0.3);
+}
+
+#mainStats th {
+	width: 135px;
+	height: 55px;
+	text-align: center;
+}
+#mainStats td {
+	width: 100px;
+	text-align: center;
+	border: 2px solid black;
+	background-color: lightgray;
+	font-weight: bold;
+	height: 27px;
+}
+#mainStats {
+	margin-left: 60px;
+}
+
+#mainStatsHeading {
+	margin-top: 70px;
+	margin-left: 60px;
+	font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+@media (max-width: 600px) {
+	#mainStats {
+		width: 70vw;
+	}
+}

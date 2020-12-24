@@ -1,0 +1,41 @@
+.wa {
+	position: absolute;
+	bottom: 275px;
+	left: 80px;
+}
+.vic {
+	position: absolute;
+	bottom: 100px;
+	left: 390px;
+}
+.nsw {
+	position: absolute;
+	bottom: 170px;
+	left: 410px;
+}
+.sa {
+	position: absolute;
+	bottom: 220px;
+	left: 280px;
+}
+.tas {
+	font-size: 0.7em;
+	position: absolute;
+	bottom: 20px;
+	left: 420px;
+}
+.nt {
+	position: absolute;
+	bottom: 400px;
+	left: 270px;
+}
+.qld {
+	position: absolute;
+	bottom: 320px;
+	left: 410px;
+}
+.test {
+	position: absolute;
+	top: 10px;
+	left: 10px;
+}
