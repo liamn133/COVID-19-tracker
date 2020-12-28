@@ -4,6 +4,9 @@ import "./Home.css";
 import Hospital from "./Hospital";
 import AustraliaMap from "./AustraliaMap";
 import AustraliaStats from "./AustraliaStats";
+import hospitalImage from "./images/hospitalImg.png"
+import testImage from "./images/test.svg"
+
 
 const Home = () => {
 	const [info, setInfo] = useState([]);
@@ -36,8 +39,8 @@ const Home = () => {
 					<AustraliaStats info={info} loadCheck={loadCheck} />
 
 					<section id="statsSectionImgs">
-						<img id="headImg" src="hospitalImg.png" />
-						<img id="testImg" src="test.svg" />
+						<img id="headImg" src={hospitalImage}/>
+						<img id="testImg" src={testImage} />
 					</section>
 
 					<section id="statsSection">

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./AustraliaMap.css";
 import $ from "jquery";
 import StateTable from "./StateTable";
+import AustraliaImg from "./images/Australia.png"
 
 const AustraliaMap = () => {
 	const [showMap, setShowMap] = useState(true);
@@ -65,7 +66,7 @@ const AustraliaMap = () => {
 	const map = (
 		<div id="superContainer">
 			<div id="container">
-				<img src="Australia.png" id="australiaImg" />
+				<img src = {AustraliaImg} id="australiaImg" />
 				<div className="wa"></div>
 				<div className="vic"></div>
 				<div className="nsw"></div>

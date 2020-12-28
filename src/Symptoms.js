@@ -1,4 +1,5 @@
 import React from "react";
+import covidPic from "./images/covid19.png"
 
 import "./Symptoms.css";
 
@@ -45,7 +46,7 @@ function Symptoms() {
 				</p>
 			</div>
 			<div id="symptomsImgContainer">
-				<img id="covidImg" src="/covid19.png" />
+				<img id="covidImg" src={covidPic} />
 			</div>
 		</div>
 	);
