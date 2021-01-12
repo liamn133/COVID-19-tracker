@@ -3,11 +3,12 @@ import World from "./World";
 import Nav from "./Nav";
 import Home from "./Home";
 import Symptoms from "./Symptoms";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import {Switch, Route, HashRouter } from "react-router-dom";
 
 function App() {
 	return (
-		<Router>
+		
+		<HashRouter>
 			<div>
 				<Nav />
 				<Switch>
@@ -16,7 +17,8 @@ function App() {
 					<Route path="/Symptoms" component={Symptoms} />
 				</Switch>
 			</div>
-		</Router>
+		</HashRouter>
+	
 	);
 }
 

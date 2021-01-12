@@ -12,19 +12,17 @@ import { features } from "./data/countries.json";
 import "leaflet/dist/leaflet.css";
 
 const World = () => {
-	const [country, setInputCountry] = useState("worldwide");
-	const [countryInfo, setCountryInfo] = useState({});
+
 	const [countries, setCountries] = useState([]);
 	const [mapCountries, setMapCountries] = useState([]);
-	
 	const [tableData, setTableData] = useState([]);
 	const [casesType, setCasesType] = useState("cases");
 	const [mapZoom, setMapZoom] = useState(3);
-	 
+	
 	
 	
 
-	const attachCovidData = () => {
+	const attachCovidData = () => {   //Attach covid data to newFeatures
 		const newFeatures = [];
 
 		for (let i = 0; i < features.length; i++) {
@@ -76,21 +74,16 @@ const World = () => {
 			}
 		}
 		console.log(newFeatures);
+		
 		return newFeatures;
+	
 	};
 
-	useEffect(() => {
-		fetch("https://disease.sh/v3/covid-19/all")
-			.then((response) => response.json())
-			.then((data) => {
-				setCountryInfo(data);
-				console.log(data);
-			});
-	}, []);
+
 
 	useEffect(() => {
 		const getCountriesData = async () => {
-			fetch("https://disease.sh/v3/covid-19/countries")
+			fetch("https://disease.sh/v3/covid-19/countries")   // Get covid data
 				.then((response) => response.json())
 				.then((data) => {
 					const countries = data.map((country) => ({
@@ -102,28 +95,14 @@ const World = () => {
 
 					setMapCountries(data);
 					setTableData(sortedData);
+			
 				});
 		};
 
 		getCountriesData();
 	}, []);
 
-	const onCountryChange = async (e) => {
-		const countryCode = e.target.value;
 
-		const url =
-			countryCode === "worldwide"
-				? "https://disease.sh/v3/covid-19/all"
-				: `https://disease.sh/v3/covid-19/countries/${countryCode}`;
-		await fetch(url)
-			.then((response) => response.json())
-			.then((data) => {
-				setInputCountry(countryCode);
-				setCountryInfo(data);
-				// setMapCenter([data.countryInfo.lat, data.countryInfo.long]);
-				setMapZoom(4);
-			});
-	};
 
 	return (
 		<div className="app">
@@ -131,13 +110,14 @@ const World = () => {
 				<div className="app__header">
 					<h1>World Overview</h1>
 				</div>
-				<Map
+				{Boolean(mapCountries.length)&&
+				(<Map
 					countries={mapCountries}
 					casesType={casesType}
 					center={{ lat: 34.80746, lng: -40.4796 }}
 					zoom={mapZoom}
 					newFeatures={attachCovidData()}
-				/>
+				/>)}
 			</div>
 			<Card style = {{marginTop: '50px'}} className="app__right">
 				<CardContent>
