@@ -1,28 +1,22 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
-import {
-	Card,
-	CardContent,
-} from "@material-ui/core";
+import { Card, CardContent } from "@material-ui/core";
 
 import Table from "./Table";
-import { sortData} from "./Helper";
+import { sortData } from "./Helper";
 import Map from "./Map";
 import { features } from "./data/countries.json";
 import "leaflet/dist/leaflet.css";
 
 const World = () => {
-
 	const [countries, setCountries] = useState([]);
 	const [mapCountries, setMapCountries] = useState([]);
 	const [tableData, setTableData] = useState([]);
 	const [casesType, setCasesType] = useState("cases");
 	const [mapZoom, setMapZoom] = useState(3);
-	
-	
-	
 
-	const attachCovidData = () => {   //Attach covid data to newFeatures
+	const attachCovidData = () => {
+		//Attach covid data to newFeatures
 		const newFeatures = [];
 
 		for (let i = 0; i < features.length; i++) {
@@ -74,16 +68,13 @@ const World = () => {
 			}
 		}
 		console.log(newFeatures);
-		
+
 		return newFeatures;
-	
 	};
-
-
 
 	useEffect(() => {
 		const getCountriesData = async () => {
-			fetch("https://disease.sh/v3/covid-19/countries")   // Get covid data
+			fetch("https://disease.sh/v3/covid-19/countries") // Get covid data
 				.then((response) => response.json())
 				.then((data) => {
 					const countries = data.map((country) => ({
@@ -95,14 +86,11 @@ const World = () => {
 
 					setMapCountries(data);
 					setTableData(sortedData);
-			
 				});
 		};
 
 		getCountriesData();
 	}, []);
-
-
 
 	return (
 		<div className="app">
@@ -110,16 +98,17 @@ const World = () => {
 				<div className="app__header">
 					<h1>World Overview</h1>
 				</div>
-				{Boolean(mapCountries.length)&&
-				(<Map
-					countries={mapCountries}
-					casesType={casesType}
-					center={{ lat: 34.80746, lng: -40.4796 }}
-					zoom={mapZoom}
-					newFeatures={attachCovidData()}
-				/>)}
+				{Boolean(mapCountries.length) && (
+					<Map
+						countries={mapCountries}
+						casesType={casesType}
+						center={{ lat: 34.80746, lng: -40.4796 }}
+						zoom={mapZoom}
+						newFeatures={attachCovidData()}
+					/>
+				)}
 			</div>
-			<Card style = {{marginTop: '50px'}} className="app__right">
+			<Card style={{ marginTop: "50px" }} className="app__right">
 				<CardContent>
 					<div className="app__information">
 						<h3>Total Cases</h3>

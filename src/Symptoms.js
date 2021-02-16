@@ -1,13 +1,15 @@
 import React from "react";
-import covidPic from "./images/covid19.png"
+import covidPic from "./images/covid19.png";
 
 import "./Symptoms.css";
+
+
 
 function Symptoms() {
 	return (
 		<div id="symptomsContainer">
 			<div id="symptomsContentContainer">
-				<h1 id = "symptomsHeading">COVID-19: An Overview</h1>
+				<h1 id="symptomsHeading">COVID-19: An Overview</h1>
 				<p className="infoParagraph">
 					<h2>What is COVID-19?</h2>
 					COVID-19 is a disease caused by the novel coronavirus SARS-COV-2.
@@ -15,8 +17,8 @@ function Symptoms() {
 					the disease was classified as a pandemic by the World Health
 					Organisation in March 2020.
 				</p>
-               
-				<p className = "infoParagraph">
+
+				<p className="infoParagraph">
 					<h2>Covid Symptoms</h2>
 					<h3>Common symptoms</h3>
 					<ul>
@@ -35,7 +37,7 @@ function Symptoms() {
 						<li>Sore throat</li>
 					</ul>
 				</p>
-				<p className = "infoParagraph">
+				<p className="infoParagraph">
 					<h2>Treatment</h2>
 					As of November 20th, 2020, there are now a number of vaccines which
 					show promising results from Phase 3 trials, with efficacy near 95%.
@@ -46,7 +48,7 @@ function Symptoms() {
 				</p>
 			</div>
 			<div id="symptomsImgContainer">
-				<img id="covidImg" src={covidPic} />
+				<img id="covidImg" src={covidPic} alt = "The SARS-CoV-2 virus which causes COVID-19" />
 			</div>
 		</div>
 	);

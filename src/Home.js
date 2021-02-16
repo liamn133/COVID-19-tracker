@@ -35,9 +35,10 @@ const Home = () => {
 	const home = (
 		<div>
 			<section id="splitPage">
+			
 				<section>
 					<AustraliaStats info={info} loadCheck={loadCheck} />
-
+                    
 					<section id="statsSectionImgs">
 						<img id="headImg" src={hospitalImage}/>
 						<img id="testImg" src={testImage} />

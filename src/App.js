@@ -3,11 +3,10 @@ import World from "./World";
 import Nav from "./Nav";
 import Home from "./Home";
 import Symptoms from "./Symptoms";
-import {Switch, Route, HashRouter } from "react-router-dom";
+import { Switch, Route, HashRouter } from "react-router-dom";
 
 function App() {
 	return (
-		
 		<HashRouter>
 			<div>
 				<Nav />
@@ -18,7 +17,6 @@ function App() {
 				</Switch>
 			</div>
 		</HashRouter>
-	
 	);
 }
 

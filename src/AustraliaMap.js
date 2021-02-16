@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./AustraliaMap.css";
-import $ from "jquery";
 import StateTable from "./StateTable";
-import AustraliaImg from "./images/Australia.png"
+import AustraliaImg from "./images/Australia.png";
 
 const AustraliaMap = () => {
 	const [showMap, setShowMap] = useState(true);
@@ -21,14 +20,14 @@ const AustraliaMap = () => {
 	}, []);
 
 	useEffect(() => {
-		$.getJSON(
-			"https://api.covid19api.com/country/australia/status/confirmed",
-			function (data1) {
-				console.log(data1);
+		fetch("https://api.covid19api.com/country/australia/status/confirmed")
+			.then((res) => res.json())
+			.then((data) => {
+				console.log(data);
 				let stateStats = {};
-				for (let i = data1.length - 1; i >= 0; i--) {
-					let key = data1[i]["Province"];
-					let cases = data1[i]["Cases"];
+				for (let i = data.length - 1; i >= 0; i--) {
+					let key = data[i]["Province"];
+					let cases = data[i]["Cases"];
 					if (!stateStats.hasOwnProperty(key)) {
 						stateStats[key] = cases;
 					}
@@ -59,14 +58,13 @@ const AustraliaMap = () => {
 					return stateStats;
 				}
 				populateStates();
-			}
-		);
+			});
 	}, [showMap]);
 
 	const map = (
 		<div id="superContainer">
 			<div id="container">
-				<img src = {AustraliaImg} id="australiaImg" />
+				<img src={AustraliaImg} id="australiaImg" alt="Australia COVID Map" />
 				<div className="wa"></div>
 				<div className="vic"></div>
 				<div className="nsw"></div>

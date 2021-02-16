@@ -1,27 +1,19 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { MapContainer as LeafletMap, TileLayer, GeoJSON } from "react-leaflet";
 import "./Map.css";
 import "leaflet/dist/leaflet.css";
 
 function Map({ countries, center, zoom, newFeatures }) {
-	
+	const countryLoad = (country, layer) => {
+		const name = country.properties.ADMIN;
+		const confirmedCases = country.cases;
+		const confirmedCasesCommas = confirmedCases
+			.toString()
+			.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 
-	
-	const countryLoad= (country, layer) => {
-		
-			const name = country.properties.ADMIN;
-			const confirmedCases = country.cases;
-			const confirmedCasesCommas = confirmedCases
-				.toString()
-				.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-
-			const confirmedDeaths = country.deaths;
-			const opacityLevel = country.opacityLevel;
-			console.log(confirmedCases);
-			layer.options.fillColor = `rgba(0,0,255, ${country.opacityLevel}`;
-			layer.bindPopup(`${name} ${confirmedCasesCommas} `);
-		
-	
+		console.log(confirmedCases);
+		layer.options.fillColor = `rgba(0,0,255, ${country.opacityLevel}`;
+		layer.bindPopup(`${name} ${confirmedCasesCommas} `);
 	};
 	console.log(newFeatures);
 
@@ -41,10 +33,6 @@ function Map({ countries, center, zoom, newFeatures }) {
 			{console.log(countries)}
 		</div>
 	);
-
-
-	
-	
 
 	return map;
 }
